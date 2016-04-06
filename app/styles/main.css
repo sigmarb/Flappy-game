@@ -18,10 +18,32 @@
 
 }
 
-.ground
+
+.ground 
 {
-	
+  background-image: url("http://flappycreator.com/default/ground.png");
+  background-repeat: repeat-x;
+  width: 200%;
+  height: 5.5em;
+  bottom: 0;
+  position: absolute;
+
+  background-size: contain;
+  animation: groundsliding 0.7s linear infinite;
 }
+
+@keyframes groundsliding 
+{
+  	0% 
+  	{
+    	transform: translateZ(0) translate(0em, 0em); 
+	}
+  	100% 
+  	{
+    	transform: translateZ(0) translate(-5em, 0em); 
+	}
+}
+
 
 
 .Player-wings {

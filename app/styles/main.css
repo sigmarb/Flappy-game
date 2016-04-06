@@ -11,14 +11,16 @@
 .Obstacle
 {
 	position: absolute;
-	top: 40em;
-	left: 40em;
-	width: 5em;
-	height: 10em;
-	background: red;
-    background-size: 100% 100%;
-    background-repeat: repeat;
+	background-image: red;
+	background-size: 100%;
 
+	background-repeat: repeat;
+
+}
+
+.ground
+{
+	
 }
 
 
@@ -40,7 +42,7 @@
     transform: rotateX(0);
   }
   to {
-    transform: rotateX(80deg);
+    transform: rotateX(60deg);
   }
 }
 

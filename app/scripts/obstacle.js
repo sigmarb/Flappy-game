@@ -6,37 +6,94 @@ window.Obstacle = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
-	var WIDTH = 5;
-	var HEIGHT = 5;
-	var INITIAL_POSITION_X = 30;
-	var INITIAL_POSITION_Y = 25;
+	var WIDTH = 10;
+	var PLAYER_HEIGHT = 4.9;
+	var PLAYER_WIDTH = 7;
+	var GAP = 13.7;
+	var STOP = false;
 
-	var Obstacle = function(el, game) {
-		this.el = el;
+	var Obstacle = function(elUpper, elLower, game, initialPos) {
+		this.elUpper = elUpper;
+		this.elLower = elLower;
+		this.pos =  { x: 0, y: 0 };
 		this.game = game;
-		this.pos = { x: 0, y: 0 };
+		this.playing = false;
+		this.initialPositionX = initialPos;
+		this.gameOver = false;
 	};
 
 	/**
 	 * Resets the state of the player for a new game.
 	 */
 	Obstacle.prototype.reset = function() {
-		this.pos.x = INITIAL_POSITION_X;
-		this.pos.y = INITIAL_POSITION_Y;
+		this.generatePipes(this.initialPositionX);
+		this.dead = false;
+		this.gameOver = false;
+		this.playing = false;
+		STOP = false;
 	};
 
 	Obstacle.prototype.onFrame = function(delta) {
-		
-       
-	
-			SPEED -= 2;
+		/*
+     		SPEED -= 2;
 			this.pos.x -= delta * SPEED;
 
 		this.checkCollisionWithBounds();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		*/
+		if(!STOP) {
+			if (this.playing) {
+				this.pos.x -= delta * SPEED;
+			} else if (Controls.keys.space || Controls.mouseclicked) {
+				this.playing = true;
+			}
+
+			if (this.pos.x + WIDTH < 0) {
+				this.generatePipes (108);
+			}
+
+			//this.checkCollisionWithPlayer();
+			//this.checkIfPlayerPassed();
+
+			this.elUpper.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
+			this.elLower.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
+		} else {	 //Bird dead animaiton
+			if(this.game.player.pos.y < this.game.DISTANCE_TO_GROUND) {
+				this.game.player.pos.y += 0.5;
+				this.game.player.el.css('-webkit-transform',
+										'translate3d(' + this.game.player.pos.x + 'em, ' + this.game.player.pos.y + 'em, 0em)' +
+										'rotate(90deg)');
+			} else {	//When the animation is done we can return gameover
+				this.gameOver = true;
+			}
+		}
 	};
+
+	Pipes.prototype.generatePipes = function (initialPos) {
+		this.pos.x = initialPos;
+
+		this.lowerHeight = getRandomInt(10, this.game.DISTANCE_TO_GROUND - GAP - 10);
+		this.upperHeight = this.game.DISTANCE_TO_GROUND - this.lowerHeight - GAP;
+		this.lowerTop = this.upperHeight + GAP;
+
+		this.lowerPos = this.upperHeight + GAP;
+		this.upperPos = this.upperHeight;
+
+		this.elUpper.css('height', this.upperHeight + 'em');
+		this.elUpper.css('width', WIDTH + 'em');
+		this.elLower.css('width', WIDTH + 'em');
+		this.elLower.css('top', this.lowerTop + 'em');
+		this.elLower.css('height', this.lowerHeight + 'em');
+
+		this.passed = false;
+	};
+
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
 
 	Obstacle.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) 
@@ -45,6 +102,6 @@ window.Obstacle = (function() {
 		}
 	};
 
-	return Player;
+	return Obstacle;
 
 })();

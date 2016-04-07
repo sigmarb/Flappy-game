@@ -30,6 +30,10 @@ window.Player = (function() {
         if (Controls.keys.space) {
 			SPEED = 40;
 			this.pos.y -= delta * SPEED;
+
+			var jumpSound = document.getElementById('jumpsnd');
+			jumpSound.play();
+			
 		}
 		else if (Controls.keys.onclick) {
 			SPEED = 40;
@@ -50,6 +54,9 @@ window.Player = (function() {
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) 
 		{
+			var deathSound = document.getElementById('deathsnd');
+			deathSound.play(); //deathsound lets go
+
 			return this.game.gameover();
 		}
 	};

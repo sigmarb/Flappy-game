@@ -55,8 +55,8 @@ window.Player = (function() {
 		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) 
 		{
 			var deathSound = document.getElementById('deathsnd');
-			deathSound.play();
-			
+			deathSound.play(); //deathsound lets go
+
 			return this.game.gameover();
 		}
 	};

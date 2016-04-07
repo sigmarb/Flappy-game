@@ -35,9 +35,6 @@
             <source src="/sound/deathsnd.wav">
         </audio>
 
-        <audio id="death">
-            <source src="deathsnd.wav">
-        </audio>
 
         <div class="GameCanvas">
             
@@ -45,9 +42,10 @@
                 <div class="Player-wings"></div>
             </div>
             <div class="ground"></div>
-            <div class="Obstacle"></div>
-            <div class="Obstacle"></div>
-            <div class="Obstacle"></div>  
+            <div id="firstObstacleUpper" class="Obstacle"></div>
+            <div id="firstObstacleLower" class="Obstacle"></div>
+            <div id="secondObstacleUpper" class="Obstacle"></div>
+            <div id="secondObstacleLower" class="Obstacle"></div> 
             <div class="Scoreboard">
                 <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>

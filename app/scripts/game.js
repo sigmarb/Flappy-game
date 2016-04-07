@@ -7,15 +7,19 @@ window.Game = (function() {
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
+    
+    
+    
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
         this.obstacleFirst = new window.Obstacle(this.el.find('#firstObstacleUpper'),
-                                                this.el.find('#firstObstacleLower'), this, 140);
+                                                 this.el.find('#firstObstacleLower'), this, 140);
         this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'),
-                                                this.el.find('#secondObstacleLower'), this, 110);
+                                                 this.el.find('#secondObstacleLower'), this, 110);
         this.isPlaying = false;
+        //this.ground = this.el.find('.ground');
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -86,9 +90,10 @@ window.Game = (function() {
 	/**
 	 * Some shared constants.
 	 */
-	Game.prototype.WORLD_WIDTH = 102.4;
+    Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
-
+    Game.prototype.DISTANCE_TO_GROUND = 52.1;
+    
 	return Game;
 })();
 

@@ -9,7 +9,7 @@ window.Obstacle = (function() {
 	var WIDTH = 10;
 	var PLAYER_HEIGHT = 4.9;
 	var PLAYER_WIDTH = 7;
-	var GAP = 13.7;
+	var GAP = 14;
 	var STOP = false;
 
 	var Obstacle = function(elUpper, elLower, game, initialPos) {
@@ -36,7 +36,7 @@ window.Obstacle = (function() {
     Obstacle.prototype.generateObstacles = function (initialPos) {
 		this.pos.x = initialPos;
 
-		this.lowerHeight = getRandomInt(10, this.game.DISTANCE_TO_GROUND - GAP - 10);
+		this.lowerHeight = getRandomInt(10, this.game.DISTANCE_TO_GROUND - GAP);
 		this.upperHeight = this.game.DISTANCE_TO_GROUND - this.lowerHeight - GAP;
 		this.lowerTop = this.upperHeight + GAP;
 
@@ -96,7 +96,7 @@ window.Obstacle = (function() {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 
-/*
+
 	Obstacle.prototype.checkCollision = function() {
 		if (this.pos.x + PLAYER_WIDTH >= this.game.player.pos.x && 
         this.pos.x - PLAYER_WIDTH <= this.game.player.pos.x &&
@@ -113,7 +113,7 @@ window.Obstacle = (function() {
             }
         } 
 	};
-*/
+
     Obstacle.prototype.checkIfPassed = function() {
         if(!this.passed && this.pos.x + WIDTH < this.game.player.pos.x) {
             this.passed = true;

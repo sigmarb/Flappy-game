@@ -73,7 +73,7 @@ window.Obstacle = (function() {
 				this.generateObstacles (108);
 			}
 
-			//this.checkCollisionWithPlayer();
+			this.checkCollision();
 			//this.checkIfPlayerPassed();
             
 			this.elUpper.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
@@ -101,27 +101,19 @@ window.Obstacle = (function() {
 		if (this.pos.x + PLAYER_WIDTH >= this.game.player.pos.x && 
         this.pos.x - PLAYER_WIDTH <= this.game.player.pos.x &&
         (this.game.player.pos.y <= this.upperPos || this.game.player.pos.y + PLAYER_HEIGHT >= this.lowerPos)) {
-            var crash = document.getElementById('crash');
-            crash.play();
+            //var crash = document.getElementById('crash');
+            //crash.play();
             
             STOP = true;
-            this.game.ground.removeClass('sliding');
-            this.game.player.el.removeClass('flapping');
-            
+            //this.game.ground.removeClass('sliding');
+            //this.game.player.el.removeClass('flapping');
+            console.log("HÉR");
             if(this.gameOver) {
                 return this.game.gameover();
             }
         } 
 	};
 
-    Obstacle.prototype.checkIfPassed = function() {
-        if(!this.passed && this.pos.x + WIDTH < this.game.player.pos.x) {
-            this.passed = true;
-            
-            return this.game.addPoint();
-        }  
-    };
-    
 	return Obstacle;
 
 })();

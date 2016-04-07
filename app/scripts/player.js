@@ -56,7 +56,6 @@ window.Player = (function() {
 		{
 			var deathSound = document.getElementById('deathsnd');
 			deathSound.play(); //deathsound lets go
-
 			return this.game.gameover();
 		}
 	};

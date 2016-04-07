@@ -26,11 +26,30 @@ window.Obstacle = (function() {
 	 * Resets the state of the player for a new game.
 	 */
 	Obstacle.prototype.reset = function() {
-		this.generatePipes(this.initialPositionX);
+		this.generateObstacles(this.initialPositionX);
 		this.dead = false;
 		this.gameOver = false;
 		this.playing = false;
 		STOP = false;
+	};
+    
+    Obstacle.prototype.generateObstacles = function (initialPos) {
+		this.pos.x = initialPos;
+
+		this.lowerHeight = getRandomInt(10, this.game.DISTANCE_TO_GROUND - GAP - 10);
+		this.upperHeight = this.game.DISTANCE_TO_GROUND - this.lowerHeight - GAP;
+		this.lowerTop = this.upperHeight + GAP;
+
+		this.lowerPos = this.upperHeight + GAP;
+		this.upperPos = this.upperHeight;
+
+		this.elUpper.css('height', this.upperHeight + 'em');
+		this.elUpper.css('width', WIDTH + 'em');
+		this.elLower.css('width', WIDTH + 'em');
+		this.elLower.css('top', this.lowerTop + 'em');
+		this.elLower.css('height', this.lowerHeight + 'em');
+
+		this.passed = false;
 	};
 
 	Obstacle.prototype.onFrame = function(delta) {
@@ -51,12 +70,12 @@ window.Obstacle = (function() {
 			}
 
 			if (this.pos.x + WIDTH < 0) {
-				this.generatePipes (108);
+				this.generateObstacles (108);
 			}
 
 			//this.checkCollisionWithPlayer();
 			//this.checkIfPlayerPassed();
-
+            
 			this.elUpper.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
 			this.elLower.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
 		} else {	 //Bird dead animaiton
@@ -71,37 +90,38 @@ window.Obstacle = (function() {
 		}
 	};
 
-	Pipes.prototype.generatePipes = function (initialPos) {
-		this.pos.x = initialPos;
-
-		this.lowerHeight = getRandomInt(10, this.game.DISTANCE_TO_GROUND - GAP - 10);
-		this.upperHeight = this.game.DISTANCE_TO_GROUND - this.lowerHeight - GAP;
-		this.lowerTop = this.upperHeight + GAP;
-
-		this.lowerPos = this.upperHeight + GAP;
-		this.upperPos = this.upperHeight;
-
-		this.elUpper.css('height', this.upperHeight + 'em');
-		this.elUpper.css('width', WIDTH + 'em');
-		this.elLower.css('width', WIDTH + 'em');
-		this.elLower.css('top', this.lowerTop + 'em');
-		this.elLower.css('height', this.lowerHeight + 'em');
-
-		this.passed = false;
-	};
+	
 
 	function getRandomInt(min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 
-
-	Obstacle.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) 
-		{
-			
-		}
+/*
+	Obstacle.prototype.checkCollision = function() {
+		if (this.pos.x + PLAYER_WIDTH >= this.game.player.pos.x && 
+        this.pos.x - PLAYER_WIDTH <= this.game.player.pos.x &&
+        (this.game.player.pos.y <= this.upperPos || this.game.player.pos.y + PLAYER_HEIGHT >= this.lowerPos)) {
+            var crash = document.getElementById('crash');
+            crash.play();
+            
+            STOP = true;
+            this.game.ground.removeClass('sliding');
+            this.game.player.el.removeClass('flapping');
+            
+            if(this.gameOver) {
+                return this.game.gameover();
+            }
+        } 
 	};
-
+*/
+    Obstacle.prototype.checkIfPassed = function() {
+        if(!this.passed && this.pos.x + WIDTH < this.game.player.pos.x) {
+            this.passed = true;
+            
+            return this.game.addPoint();
+        }  
+    };
+    
 	return Obstacle;
 
 })();

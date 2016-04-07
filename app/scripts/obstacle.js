@@ -8,7 +8,7 @@ window.Obstacle = (function() {
 	var SPEED = 30; // * 10 pixels per second
 	var WIDTH = 10;
 	var PLAYER_HEIGHT = 4.9;
-	var PLAYER_WIDTH = 7;
+	var PLAYER_WIDTH = 5;
 	var GAP = 14;
 	var STOP = false;
 

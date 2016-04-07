@@ -22,18 +22,47 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <!--<audio id="gamesnd" loop autoplay>
+            <source src="/sounds/gamesnd.wav"> 
+        </audio>
+        <audio id="gamesnd" loop autoplay>
+            <source src="gamesnd.wav"> 
+        </audio>
+        <audio id="gamesnd" loop autoplay>
+           <source src="/sounds/gamesnd.mp3"> 
+        </audio>
+        <audio id="gamesnd" loop autoplay>
+            <source src="gamesnd.mp3"> 
+        </audio>-->
+        <audio id="gamesnd" loop autoplay>
+            <source src="/sound/gamesnd.mp3"> 
+        </audio>
+            
+        <audio id="jumpsnd">
+            <source src="/sound/jumpsnd.wav">
+        </audio>
+
+        <audio id="deathsnd">
+            <source src="/sound/deathsnd.wav">
+        </audio>
 
         <div class="GameCanvas">
 
-            
-            <div id="firstObstacleUpper" class="Obstacle"></div>
-            <div id="firstObstacleLower" class="Obstacle"></div>
-            <div id="secondObstacleUpper" class="Obstacle"></div>
-            <div id="secondObstacleLower" class="Obstacle"></div>
-  
+
+            <!--
+            <audio id="gamesnd" loop autoplay>
+                <source src="/sound/gamesnd.mp3"> 
+            </audio>
+            -->
+
             <div class="Player">
                 <div class="Player-wings"></div>
             </div>
+            <div class="ground"></div>
+            <div id="firstObstacleUpper" class="Obstacle"></div>
+            <div id="firstObstacleLower" class="Obstacle"></div>
+            <div id="secondObstacleUpper" class="Obstacle"></div>
+            <div id="secondObstacleLower" class="Obstacle"></div> 
             <div class="Scoreboard">
                 <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>

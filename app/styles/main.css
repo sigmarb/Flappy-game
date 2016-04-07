@@ -11,6 +11,7 @@
 .Obstacle
 {
 	position: absolute;
+<<<<<<< HEAD
 	top: 40em;
 	left: 40em;
 	width: 5em;
@@ -18,8 +19,41 @@
 	background: url("marri.png");
     background-size: 100% 100%;
     background-repeat: repeat;
+=======
+	background-image: red;
+	background-size: 100%;
+
+	background-repeat: repeat;
+>>>>>>> df421dcf3fca436b1369d6e672a420d71e1dd44b
 
 }
+
+
+.ground 
+{
+  background-image: url("http://flappycreator.com/default/ground.png");
+  background-repeat: repeat-x;
+  width: 200%;
+  height: 5.5em;
+  bottom: 0;
+  position: absolute;
+
+  background-size: contain;
+  animation: groundsliding 0.7s linear infinite;
+}
+
+@keyframes groundsliding 
+{
+  	0% 
+  	{
+    	transform: translateZ(0) translate(0em, 0em); 
+	}
+  	100% 
+  	{
+    	transform: translateZ(0) translate(-5em, 0em); 
+	}
+}
+
 
 
 .Player-wings {
@@ -40,7 +74,7 @@
     transform: rotateX(0);
   }
   to {
-    transform: rotateX(80deg);
+    transform: rotateX(60deg);
   }
 }
 

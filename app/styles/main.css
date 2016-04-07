@@ -11,14 +11,12 @@
 .Obstacle
 {
 	position: absolute;
-	top: 40em;
-	left: 40em;
+	top: 42em;
 	width: 5em;
 	height: 10em;
 	background: url("marri.png");
     background-size: 100% 100%;
     background-repeat: repeat;
-
 }
 
 

@@ -11,8 +11,10 @@ window.Game = (function() {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
-        this.obstacleFirst = new window.Obstacle(this.el.find('#firstObstacleUpper'), this.el.find('firstObstacleLower'), this, 155);
-        this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'), this.el.find('secondObstacleLower'), this, 155);
+        this.obstacleFirst = new window.Obstacle(this.el.find('#firstObstacleUpper'),
+                                                this.el.find('#firstObstacleLower'), this, 140);
+        this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'),
+                                                this.el.find('#secondObstacleLower'), this, 110);
         this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);

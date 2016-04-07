@@ -19,6 +19,32 @@
 }
 
 
+.cloud
+{
+	background-image: url("http://www.256project.co.uk/img/exported/kirbysadventure.png");
+  background-repeat: repeat-x;
+  width: 200%;
+  height: 7.5em;
+  top: 0;
+
+  background-size: 100% 100%;
+  position: absolute;
+  background-size: contain;
+  animation: cloudsliding 0.5s linear infinite;
+}
+@keyframes cloudsliding 
+{
+  	0% 
+  	{
+    	transform: translateZ(0) translate(0em, 0em); 
+	}
+  	100% 
+  	{
+    	transform: translateZ(0) translate(-11em, 0em); 
+	}
+}
+
+
 .ground 
 {
   background-image: url("http://flappycreator.com/default/ground.png");

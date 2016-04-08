@@ -100,7 +100,7 @@ window.Game = (function() {
     Game.prototype.addScore = function() {
         this.score++;
         $('#Scoreboard-score').html(this.score);
-    }
+    };
     
 	/**
 	 * Some shared constants.

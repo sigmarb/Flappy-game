@@ -105,6 +105,9 @@ window.Obstacle = (function() {
     Obstacle.prototype.checkScore = function() {
         if(!this.passed && this.pos.x < this.game.player.pos.x) {
             this.passed = true;
+            var scoresound = document.getElementById('scoresound');
+            scoresound.currentTime = 0;
+			scoresound.play();
             var adding = this.game.addScore();
             return adding;
         }

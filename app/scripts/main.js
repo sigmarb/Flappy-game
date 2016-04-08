@@ -8,8 +8,8 @@ $(function() {
 	var gamesound = document.getElementById('gamesnd');
 	gamesound.volume = 0.2;
 
-	var jumpsound = document.getElementById('jumpsnd');
-	jumpsound.volume = 0.4;
+	var jumpSound = document.getElementById('jumpsnd');
+	jumpSound.volume = 0.2;
 
 	var scoresound = document.getElementById('scoresound');
 	scoresound.volume = 1;

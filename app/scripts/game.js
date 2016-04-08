@@ -8,7 +8,7 @@ window.Game = (function() {
 	 * @constructor
 	 */
     
-    
+    //var muted = true;
     
 	var Game = function(el) {
 		this.el = el;
@@ -53,8 +53,12 @@ window.Game = (function() {
 	/**
 	 * Starts a new game.
 	 */
+    
+
+    
 	Game.prototype.start = function() {
 		this.reset();
+        this.score = 0;
         $('#Scoreboard-score').html(this.score);
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
@@ -97,6 +101,7 @@ window.Game = (function() {
 				});
 	};
     
+    
     Game.prototype.addScore = function() {
         this.score++;
         $('#Scoreboard-score').html(this.score);
@@ -109,6 +114,7 @@ window.Game = (function() {
     Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
     Game.prototype.DISTANCE_TO_GROUND = 52.1;
+    Game.prototype.muteSound = false;
     
 	return Game;
 })();

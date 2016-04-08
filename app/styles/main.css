@@ -108,19 +108,16 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
-#mutebutton
-{
-	
-}
 
-#mutebutton.mute
+
+#muteButton.mute
 {
 
 }
 
-#mutebutton.unmute
+#muteButton.unmute
 {
-	
+
 }
 
 

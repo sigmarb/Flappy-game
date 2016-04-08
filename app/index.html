@@ -24,18 +24,18 @@
         <![endif]-->
       
         <audio id="gamesnd" loop autoplay>
-            <source src="/sound/gamesnd.mp3"> 
+            <source src="/sound/gamesnd.mp3" type="audio/mpeg"> 
         </audio>
          <audio id="scoresound">
-            <source src="/sound/scoresound.mp3">
+            <source src="/sound/scoresound.mp3" type="audio/mpeg">
         </audio>
             
         <audio id="jumpsnd">
-            <source src="/sound/jumpsnd.mp3">
+            <source src="/sound/jumpsnd.mp3" type="audio/mpeg">
         </audio>
 
         <audio id="deathsnd">
-            <source src="/sound/deathsnd.wav">
+            <source src="/sound/deathsnd.wav" type="audio/mpeg">
         </audio>
 
 
@@ -48,8 +48,12 @@
             <div id="firstObstacleLower" class="Obstacle"></div>
             <div id="secondObstacleUpper" class="Obstacle"></div>
             <div id="secondObstacleLower" class="Obstacle"></div>
-            <button id="#mutebutton" class="muteButton">Mute</button>
-             
+            
+            <a href="#" onclick="var game = document.getElementById('gamesnd'); game.muted = !game.muted;
+             var jump = document.getElementById('jumpsnd'); jump.muted = !jump.muted;
+             var death = document.getElementById('deathsnd'); death.muted = !death.muted;
+             var score = document.getElementById('scoresound'); score.muted = !score.muted">Mute/Unmute</a>
+            
             <div class="Player">
                 <div class="Player-wings"></div>
             </div>

@@ -22,7 +22,7 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
-        this.muteButton = false;
+        //this.muteSound = false;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
@@ -49,7 +49,8 @@ window.Controls = (function() {
             return false;
         }
     };
-
+    
+    
     /**
      * Only answers true once until a key is pressed again.
      */

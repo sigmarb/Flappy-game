@@ -4,14 +4,14 @@
 	left: 0;
 	width: 5em;
 	height: 5em;
-	background: url("marri.png");
+	background: url("marri3.png");
     background-size: 100% 100%;
 }
 
 .Obstacle
 {
 	position: absolute;
-	background: url("marri.png");
+	background: url("obs.png");
     background-size: 100% 100%;
     background-repeat: repeat;
 }
@@ -19,33 +19,34 @@
 
 .cloud
 {
-	background-image: url("http://www.256project.co.uk/img/exported/kirbysadventure.png");
-  background-repeat: repeat-x;
+  background-image: url("cloud.png");
   width: 200%;
   height: 7.5em;
   top: 0;
-
-  background-size: 100% 100%;
   position: absolute;
+  background-repeat: no-repeat;
   background-size: contain;
-  animation: cloudsliding 0.5s linear infinite;
+  animation: cloudsliding 5s linear infinite;
 }
+
+
+
 @keyframes cloudsliding 
 {
   	0% 
   	{
-    	transform: translateZ(0) translate(0em, 0em); 
+    	transform: translateZ(0) translate(100em, 0em); 
 	}
   	100% 
   	{
-    	transform: translateZ(0) translate(-11em, 0em); 
+    	transform: translateZ(0) translate(-8em, 0em); 
 	}
 }
 
 
 .ground 
 {
-  background-image: url("http://flappycreator.com/default/ground.png");
+  background-image: url("ground.png");
   background-repeat: repeat-x;
   width: 200%;
   height: 5.5em;
@@ -72,7 +73,7 @@
 
 .Player-wings {
   position: absolute;
-  left: -3.9em;
+  left: -3.5em;
   top: 0.3em;
   height: 2em;
   width: 4em;

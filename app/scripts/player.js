@@ -53,7 +53,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+		if (this.pos.y + HEIGHT > (this.game.WORLD_HEIGHT - 5)) {
 			var deathSound = document.getElementById('deathsnd');
 			deathSound.play(); //deathsound lets go
 			return this.game.gameover();

@@ -55,7 +55,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-        //$('#Scoreboard-score').html(this.score);
+        $('#Scoreboard-score').html(this.score);
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -100,6 +100,7 @@ window.Game = (function() {
     Game.prototype.addScore = function() {
         this.score++;
         $('#Scoreboard-score').html(this.score);
+        $('#World-score').html(this.score);
     };
     
 	/**

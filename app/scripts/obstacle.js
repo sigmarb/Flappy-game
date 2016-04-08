@@ -53,15 +53,6 @@ window.Obstacle = (function() {
 	};
 
 	Obstacle.prototype.onFrame = function(delta) {
-		/*
-     		SPEED -= 2;
-			this.pos.x -= delta * SPEED;
-
-		this.checkCollisionWithBounds();
-
-		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-		*/
 		if(!STOP) {
 			if (this.playing) {
 				this.pos.x -= delta * SPEED;
@@ -98,20 +89,17 @@ window.Obstacle = (function() {
 
 
 	Obstacle.prototype.checkCollision = function() {
-		if (this.pos.x + PLAYER_WIDTH >= this.game.player.pos.x && 
-        this.pos.x - PLAYER_WIDTH <= this.game.player.pos.x &&
-        (this.game.player.pos.y <= this.upperPos || this.game.player.pos.y + PLAYER_HEIGHT >= this.lowerPos)) {
+		if (this.pos.x + PLAYER_WIDTH >= this.game.player.pos.x && this.pos.x - PLAYER_WIDTH <= this.game.player.pos.x && (this.game.player.pos.y <= this.upperPos || this.game.player.pos.y + PLAYER_HEIGHT >= this.lowerPos)) {
             //var crash = document.getElementById('crash');
             //crash.play();
             
             STOP = true;
             //this.game.ground.removeClass('sliding');
             //this.game.player.el.removeClass('flapping');
-            console.log("HÉR");
             if(this.gameOver) {
                 return this.game.gameover();
             }
-        } 
+ 		} 
 	};
 
 	return Obstacle;

@@ -19,6 +19,8 @@ window.Game = (function() {
         this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'),
                                                  this.el.find('#secondObstacleLower'), this, 110);
         this.isPlaying = false;
+
+
         //this.ground = this.el.find('.ground');
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);

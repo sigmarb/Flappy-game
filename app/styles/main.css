@@ -108,6 +108,22 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
+#mutebutton
+{
+	
+}
+
+#mutebutton.mute
+{
+
+}
+
+#mutebutton.unmute
+{
+	
+}
+
+
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */

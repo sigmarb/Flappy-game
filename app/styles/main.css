@@ -71,25 +71,26 @@
 
 
 
-.Player-wings {
+.Player-wings-left {
   position: absolute;
-  left: -3.5em;
-  top: 0.3em;
+  left: -2.7em;
+  top: 1.2em;
   height: 2em;
   width: 4em;
   
-  background: url("images-2.png");
+  background: url("http://www.pngall.com/wp-content/uploads/2016/04/Ear-PNG-Picture.png");
   background-size:100% 100%;
-  transform-origin: top left;
-  animation: 0.4s flap alternate infinite;
+  transform-origin: center right;
+  animation: 0.4s flap-left alternate infinite;
 }
 
-@keyframes flap {
+
+@keyframes flap-left {
   from {
-    transform: rotateX(0);
+    transform: rotateY(0);
   }
   to {
-    transform: rotateX(60deg);
+    transform: rotateY(50deg);
   }
 }
 
@@ -101,8 +102,6 @@
 	height: 30em;
 	width: 40em;
 	margin-left: -20em;
-	box-sizing: border-box;
-	background: purple;
 	text-align: center;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
@@ -131,30 +130,39 @@
 	-webkit-transform: none;
 }
 
-.Scoreboard-restart {
-    margin-top: 8em;
-	font-size: inherit;
-	padding: 0.4em 1.5em;
-	border: 0.2em solid white;
-	background: none;
-	cursor: pointer;
+.Scorebord-text
+{
+	font-family: futura;
+	font-size: 3em;
 }
+
+.Scoreboard-restart {
+    margin-top: 4em;
+    background:none;
+	font-size: inherit;
+	cursor: pointer;
+	border-width: thin;
+	border-color: white;
+	border-radius: 0.5em;
+}
+
 .Scoreboard-restartText {
-    font-family: 'Comic Sans MS', serif;
-    font-size: 2.4em;
+	font-size: 3em;
+	background:none;
+    font-family: 'futura', serif;
     color: white;
 }
 
 #Scoreboard-highScore {
-    font-family: 'Comic Sans MS', serif;
-    font-size: 2.4em;
+	font-size: 3em;
+    font-family: 'futura', serif;
     color: white; 
 }
 
 #Scoreboard-score {
     margin-top: 4em;
-    font-family: 'Comic Sans MS', serif;
-    font-size: 2.4em;
+    font-family: 'futura', serif;
+    font-size: 2.5em;
     color: white;
 }
 

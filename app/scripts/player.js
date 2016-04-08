@@ -31,6 +31,10 @@ window.Player = (function() {
 			SPEED = 40;
 			this.pos.y -= delta * SPEED;
 
+			var jumpSound = document.getElementById('jumpsnd');
+            jumpSound.currentTime = 0;
+			jumpSound.play();
+
 		}
 		else if (Controls.keys.onclick) {
 			SPEED = 40;

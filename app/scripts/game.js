@@ -101,7 +101,7 @@ window.Game = (function() {
         this.score++;
         $('#Scoreboard-score').html(this.score);
         $('#World-score').html(this.score);
-    }
+    };
     
 	/**
 	 * Some shared constants.

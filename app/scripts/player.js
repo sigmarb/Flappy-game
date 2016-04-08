@@ -32,6 +32,7 @@ window.Player = (function() {
 			this.pos.y -= delta * SPEED;
 
 			var jumpSound = document.getElementById('jumpsnd');
+            jumpSound.currentTime = 0;
 			jumpSound.play();
 			
 		}

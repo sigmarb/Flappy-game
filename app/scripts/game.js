@@ -15,10 +15,11 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
         this.obstacleFirst = new window.Obstacle(this.el.find('#firstObstacleUpper'),
-                                                 this.el.find('#firstObstacleLower'), this, 140);
+                                                 this.el.find('#firstObstacleLower'), this, 148);
         this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'),
-                                                 this.el.find('#secondObstacleLower'), this, 110);
+                                                 this.el.find('#secondObstacleLower'), this, 115);
         this.isPlaying = false;
+        this.highScore = 0;
         //this.ground = this.el.find('.ground');
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -53,7 +54,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-
+        //$('#Scoreboard-score').html(this.score);
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -67,6 +68,7 @@ window.Game = (function() {
 		this.player.reset();
         this.obstacleFirst.reset();
         this.obstacleSecond.reset();
+        this.score = 0;
 	};
 
 	/**
@@ -78,6 +80,13 @@ window.Game = (function() {
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
+        
+        if(this.score > this.highScore) {
+            this.highScore = this.score;
+        }
+        
+        $('#Scoreboard-highScore').html(this.highScore);
+        $('#Scoreboard-score').html(this.score);
 		scoreboardEl
 			.addClass('is-visible')
 			.find('.Scoreboard-restart')
@@ -86,7 +95,12 @@ window.Game = (function() {
 					that.start();
 				});
 	};
-
+    
+    Game.prototype.addScore = function() {
+        this.score++;
+        $('#Scoreboard-score').html(this.score);
+    }
+    
 	/**
 	 * Some shared constants.
 	 */

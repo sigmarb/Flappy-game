@@ -116,7 +116,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 20em;
+    margin-top: 8em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -124,10 +124,24 @@
 	cursor: pointer;
 }
 .Scoreboard-restartText {
-font-family: 'Comic Sans MS', serif;
-font-size: 2.4em;
-color: white;
+    font-family: 'Comic Sans MS', serif;
+    font-size: 2.4em;
+    color: white;
 }
+
+#Scoreboard-highScore {
+    font-family: 'Comic Sans MS', serif;
+    font-size: 2.4em;
+    color: white; 
+}
+
+#Scoreboard-score {
+    margin-top: 4em;
+    font-family: 'Comic Sans MS', serif;
+    font-size: 2.4em;
+    color: white;
+}
+
 body {
 background: black;
 }

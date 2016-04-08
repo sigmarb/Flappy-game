@@ -9,7 +9,7 @@ window.Obstacle = (function() {
 	var WIDTH = 10;
 	var PLAYER_HEIGHT = 4.9;
 	var PLAYER_WIDTH = 5;
-	var GAP = 14;
+	var GAP = 15.6;
 	var STOP = false;
 
 	var Obstacle = function(elUpper, elLower, game, initialPos) {
@@ -74,7 +74,7 @@ window.Obstacle = (function() {
 			}
 
 			this.checkCollision();
-			//this.checkIfPlayerPassed();
+			this.checkScore();
             
 			this.elUpper.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
 			this.elLower.css('transform', 'translateZ(0) translateX(' + this.pos.x + 'em)');
@@ -83,7 +83,7 @@ window.Obstacle = (function() {
 				this.game.player.pos.y += 0.5;
 				this.game.player.el.css('-webkit-transform',
 										'translate3d(' + this.game.player.pos.x + 'em, ' + this.game.player.pos.y + 'em, 0em)' +
-										'rotate(90deg)');
+										'rotate(180deg)');
 			} else {	//When the animation is done we can return gameover
 				this.gameOver = true;
 			}
@@ -113,7 +113,15 @@ window.Obstacle = (function() {
             }
         } 
 	};
-
+    
+    Obstacle.prototype.checkScore = function() {
+        if(!this.passed && this.pos.x < this.game.player.pos.x) {
+            this.passed = true;
+            var adding = this.game.addScore();
+            return adding;
+        }
+    }
+    
 	return Obstacle;
 
 })();

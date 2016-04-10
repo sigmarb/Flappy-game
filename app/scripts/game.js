@@ -8,20 +8,19 @@ window.Game = (function() {
 	 * @constructor
 	 */
     
-    //var muted = true;
-    
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
-        this.obstacleFirst = new window.Obstacle(this.el.find('#firstObstacleUpper'),
-                                                 this.el.find('#firstObstacleLower'), this, 148);
-        this.obstacleSecond = new window.Obstacle(this.el.find('#secondObstacleUpper'),
-                                                 this.el.find('#secondObstacleLower'), this, 115);
+        this.obstacleOne = new window.Obstacle(this.el.find('#firstObstacleUpper'),
+                                                 this.el.find('#firstObstacleLower'), this, 115);
+        this.obstacleTwo = new window.Obstacle(this.el.find('#secondObstacleUpper'),
+                                                 this.el.find('#secondObstacleLower'), this, 147);
+        this.obstacleThree = new window.Obstacle(this.el.find('#thirdObstacleUpper'),
+                                                 this.el.find('#thirdObstacleLower'), this, 171);
         this.isPlaying = false;
-
         this.highScore = 0;
-        //this.ground = this.el.find('.ground');
+
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -43,8 +42,9 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-        this.obstacleFirst.onFrame(delta);
-        this.obstacleSecond.onFrame(delta);
+        this.obstacleOne.onFrame(delta);
+        this.obstacleTwo.onFrame(delta);
+        this.obstacleThree.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -52,14 +52,11 @@ window.Game = (function() {
 
 	/**
 	 * Starts a new game.
-	 */
-    
+	 */  
 
-    
 	Game.prototype.start = function() {
-		this.reset();
-        this.score = 0;
-        $('#Scoreboard-score').html(this.score);
+        this.reset();   
+
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -71,9 +68,11 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
-        this.obstacleFirst.reset();
-        this.obstacleSecond.reset();
+        this.obstacleOne.reset();
+        this.obstacleTwo.reset();
+        this.obstacleThree.reset();
         this.score = 0;
+		$('#World-score').html(this.score);
 	};
 
 	/**
@@ -101,20 +100,11 @@ window.Game = (function() {
 				});
 	};
     
-    
-    Game.prototype.addScore = function() {
-        this.score++;
-        $('#Scoreboard-score').html(this.score);
-        $('#World-score').html(this.score);
-    };
-    
 	/**
 	 * Some shared constants.
 	 */
     Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
-    Game.prototype.DISTANCE_TO_GROUND = 52.1;
-    Game.prototype.muteSound = false;
     
 	return Game;
 })();

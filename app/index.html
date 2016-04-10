@@ -48,20 +48,27 @@
             <div id="firstObstacleLower" class="Obstacle"></div>
             <div id="secondObstacleUpper" class="Obstacle"></div>
             <div id="secondObstacleLower" class="Obstacle"></div>
+            <div id="thirdObstacleUpper" class="Obstacle"></div>
+            <div id="thirdObstacleLower" class="Obstacle"></div>
             
-            <a href="#" onclick="var game = document.getElementById('gamesnd'); game.muted = !game.muted;
+            <!--Not pretty, but 10 hours of trying to do mute/unmute with JQuery is enough -->
+            <a href="#" class="mute" onclick="var game = document.getElementById('gamesnd'); game.muted = !game.muted;
              var jump = document.getElementById('jumpsnd'); jump.muted = !jump.muted;
              var death = document.getElementById('deathsnd'); death.muted = !death.muted;
-             var score = document.getElementById('scoresound'); score.muted = !score.muted">Mute/Unmute</a>
+             var score = document.getElementById('scoresound'); score.muted = !score.muted">
+             Mute/Unmute</a>
+                
+             
             
             <div class="Player">
                 <div class="Player-wings-left"></div>
                 <div class="Player-wings-right"></div>
             </div>
-            <div
+       
             <div id="World-score">
                 <span> 0 </span>
             </div>
+            
             <div class="Scoreboard">
                 <div> <span class="Scorebord-text">High Score: </span> 
                     <span id="Scoreboard-highScore"></span>   

@@ -6,7 +6,6 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
-	//var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
@@ -55,7 +54,7 @@ window.Player = (function() {
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.y + HEIGHT > (this.game.WORLD_HEIGHT - 5)) {
 			var deathSound = document.getElementById('deathsnd');
-			deathSound.play(); //deathsound lets go
+			deathSound.play();
 			return this.game.gameover();
 		}
 	};

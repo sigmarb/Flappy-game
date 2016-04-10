@@ -22,10 +22,9 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
-        //this.muteSound = false;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
     };
 
     Controls.prototype._onKeyDown = function(e) {

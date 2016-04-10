@@ -16,6 +16,10 @@
     background-repeat: repeat;
 }
 
+.mute
+{
+    font-size: 3em;
+}
 
 .cloud
 {
@@ -28,8 +32,6 @@
   background-size: contain;
   animation: cloudsliding 5s linear infinite;
 }
-
-
 
 @keyframes cloudsliding 
 {
@@ -52,7 +54,6 @@
   height: 5.5em;
   bottom: 0;
   position: absolute;
-
   background-size: contain;
   animation: groundsliding 0.7s linear infinite;
 }
@@ -68,8 +69,6 @@
     	transform: translateZ(0) translate(-5em, 0em); 
 	}
 }
-
-
 
 .Player-wings-left {
   position: absolute;
@@ -107,17 +106,6 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
-
-
-#muteButton.mute
-{
-
-}
-
-#muteButton.unmute
-{
-
-}
 
 
 /**
